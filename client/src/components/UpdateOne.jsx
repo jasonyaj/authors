@@ -5,11 +5,13 @@ import Button from "react-bootstrap/Button";
 
 const CreateAuthor = () => {
   const nav = useNavigate();
+  // useParams id to be passed around
   const { id } = useParams();
 
   const [name, setName] = useState("");
   const [errors, setErrors] = useState([]);
 
+  // get the data right away
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/authors/${id}`)
@@ -19,6 +21,7 @@ const CreateAuthor = () => {
       .catch((serverErr) => console.log(serverErr));
   }, [id]);
 
+  // ***function to update the current author
   const updateAuthor = (e) => {
     e.preventDefault();
 
@@ -47,7 +50,7 @@ const CreateAuthor = () => {
       });
   };
 
-  // function for cancel button to redirect
+  // ***function for cancel button to redirect
   const cancel = () => {
     nav(`/`);
   };

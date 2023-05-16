@@ -6,10 +6,12 @@ import Button from "react-bootstrap/Button";
 const CreateAuthor = () => {
   const nav = useNavigate();
 
+  // setting states
   const [name, setName] = useState("");
   const [errors, setErrors] = useState([]);
 
-  const updateAuthor = (e) => {
+  // ***function to create author
+  const createAuthor = (e) => {
     e.preventDefault();
 
     // create the object that mimics the MODEL
@@ -47,7 +49,7 @@ const CreateAuthor = () => {
       <Link to="/">Home</Link>
       <p style={{ color: "purple" }}>Add a new Author</p>
       <legend>
-        <form onSubmit={updateAuthor}>
+        <form onSubmit={createAuthor}>
           {errors.map((err, index) => (
             <p key={index}>{err}</p>
           ))}

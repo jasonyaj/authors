@@ -4,9 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
-const Main = (props) => {
-  const { authors, setAuthors } = props;
-  const { removeFromDom } = props;
+// { authors, setAuthors, removeFromDom } instead of props to destructure
+const Main = ({ authors, setAuthors, removeFromDom }) => {
   const nav = useNavigate();
 
   // get the data right away
@@ -30,7 +29,7 @@ const Main = (props) => {
     axios
       .delete("http://localhost:8000/api/authors/" + authorId)
       .then((res) => {
-        removeFromDom(authorId);
+        removeFromDom(authorId); //calls function so filter out the author and update state in App.js
       })
       .catch((err) => console.log(err));
   };
