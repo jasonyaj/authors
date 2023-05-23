@@ -6,8 +6,8 @@ const AuthorSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Please enter a name"],
-      minlength: [3, "Name must be at least 3 characters long"],
+      required: [true, "Please enter a name"], //make validations for name to be required, something must be answered
+      minlength: [3, "Name must be at least 3 characters long"], // set a minimum length for characters entered
     },
   },
   { timestamps: true }

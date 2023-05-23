@@ -9,14 +9,12 @@ import Container from "react-bootstrap/Container";
 function App() {
   // useStates, combined with useEffect and removeFromDom function to refresh list without refreshing the whole page, just the DOM
   const [authors, setAuthors] = useState([]);
-  // const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/authors")
       .then((res) => {
         setAuthors(res.data);
-        // setLoaded(true);
       })
       .catch((err) => console.error(err));
   }, []);
